@@ -1,20 +1,36 @@
-import type { GatsbyConfig } from "gatsby";
+import type { GatsbyConfig } from 'gatsby'
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`
+})
 
 const config: GatsbyConfig = {
+  flags: {
+    DEV_SSR: true
+  },
+  jsxRuntime: 'automatic',
   siteMetadata: {
     title: `gatsby-crud-directus`,
     siteUrl: `https://www.yourdomain.tld`
   },
-  // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
-  // If you use VSCode you can also use the GraphQL plugin
-  // Learn more at: https://gatsby.dev/graphql-typegen
   graphqlTypegen: true,
-  plugins: [{
-    resolve: 'gatsby-plugin-manifest',
-    options: {
-      "icon": "src/images/icon.png"
+  plugins: [
+    'gatsby-plugin-dts-css-modules',
+    {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        icon: 'src/images/icon.png'
+      }
+    },
+    {
+      resolve: '@directus/gatsby-source-directus',
+      options: {
+        url: `http://0.0.0.0:8055/`,
+        auth: {
+          token: process.env.DIRECTUS_TOKEN
+        }
+      }
     }
-  }]
-};
+  ]
+}
 
-export default config;
+export default config

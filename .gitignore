@@ -2,3 +2,7 @@ node_modules/
 .cache/
 public
 src/gatsby-types.d.ts
+.env*
+cypress/screenshots
+cypress/videos
+NOTES.md

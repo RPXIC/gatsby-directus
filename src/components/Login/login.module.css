@@ -1,0 +1,21 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  text-align: center;
+  margin: 0;
+  padding: 2rem;
+}
+
+.formContainer {
+  width: 35%;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
