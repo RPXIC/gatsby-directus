@@ -14,5 +14,11 @@ describe('OnBoarding tests', () => {
     cy.get(SHOW_PASSWORD_ICON).click()
 
     cy.get(SUBMIT).click()
+
+    cy.get('[type="text"]').clear()
+
+    cy.get(EMAIL_INPUT).type(Cypress.env('testEmail2'))
+    cy.get(PASSWORD_INPUT).type(Cypress.env('testPassword'))
+    cy.get(SUBMIT).click()
   })
 })
