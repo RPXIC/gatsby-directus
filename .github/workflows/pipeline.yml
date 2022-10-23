@@ -32,6 +32,9 @@ jobs:
   build:
     needs: install
     runs-on: ubuntu-22.04
+    env:
+      DIRECTUS_URL: ${{ secrets.DIRECTUS_URL }}
+      DIRECTUS_TOKEN: ${{ secrets.DIRECTUS_TOKEN }}
     steps:
       - uses: actions/checkout@v2
         with:
