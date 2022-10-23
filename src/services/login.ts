@@ -1,8 +1,9 @@
+const URL = process.env.DIRECTUS_URL
 const TOKEN = process.env.DIRECTUS_TOKEN
 
 export const login = async ({ email, password }: { email: string; password: string }) => {
   try {
-    const res = await fetch('http://0.0.0.0:8055/auth/login', {
+    const res = await fetch(`${URL}/auth/login`, {
       headers: {
         Authorization: `Bearer ${TOKEN}`,
         'Content-Type': 'application/json'

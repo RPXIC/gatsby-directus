@@ -29,22 +29,6 @@ jobs:
       - name: Install Dependencies
         run: npm ci
 
-  lint:
-    needs: install
-    runs-on: ubuntu-22.04
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-      - uses: actions/setup-node@v2
-        with:
-          cache: 'npm'
-          node-version: '16'
-      - name: Install Dependencies
-        run: npm ci
-      - name: Lint
-        run: npm run eslint
-
   build:
     needs: install
     runs-on: ubuntu-22.04
@@ -66,7 +50,7 @@ jobs:
           path: dist
 
   e2e:
-    needs: [lint, build]
+    needs: [build]
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v2

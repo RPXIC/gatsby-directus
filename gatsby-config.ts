@@ -24,7 +24,7 @@ const config: GatsbyConfig = {
     {
       resolve: '@directus/gatsby-source-directus',
       options: {
-        url: `http://0.0.0.0:8055/`,
+        url: process.env.DIRECTUS_URL,
         auth: {
           token: process.env.DIRECTUS_TOKEN
         }
