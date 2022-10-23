@@ -64,3 +64,6 @@ jobs:
           browser: chrome
           build: npm run build
           start: npm start
+        env:
+          DIRECTUS_URL: ${{ secrets.DIRECTUS_URL }}
+          DIRECTUS_TOKEN: ${{ secrets.DIRECTUS_TOKEN }}
