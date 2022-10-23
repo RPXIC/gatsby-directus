@@ -53,6 +53,7 @@ jobs:
           path: dist
 
   cypress-run:
+    needs: build
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout
@@ -61,3 +62,5 @@ jobs:
         uses: cypress-io/github-action@v4
         with:
           browser: chrome
+          build: npm run build
+          start: npm start
