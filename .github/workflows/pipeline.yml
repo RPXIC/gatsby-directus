@@ -61,9 +61,12 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v4
         with:
+          install: false
+          start: npm run test:e2e:ci
+          wait-on: 'http://localhost:8000'
+          wait-on-timeout: 120
           browser: chrome
-          build: npm run build
-          start: npm start
+          record: true
         env:
           DIRECTUS_URL: ${{ secrets.DIRECTUS_URL }}
           DIRECTUS_TOKEN: ${{ secrets.DIRECTUS_TOKEN }}
