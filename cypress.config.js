@@ -5,5 +5,9 @@ module.exports = defineConfig({
     baseUrl: 'http://localhost:8000',
     specPattern: 'cypress/e2e',
     projectId: 'yn556e'
+  },
+  env: {
+    EMAIL: '',
+    PASSWORD: ''
   }
 })
