@@ -30,15 +30,16 @@ export const useLogin = () => {
     event.preventDefault()
 
     setState({ ...state, loading: true })
-    const { data, res } = await login({ email, password })
+    const { data, res, error } = await login({ email, password })
     setState({ ...state, loading: false })
 
-    if (res?.ok && res.status === 200) {
+    if (res?.ok && res?.status === 200) {
       setSnackbar({ open: true, text: 'User Logged', severity: 'success' })
       setUser({ token: data.data.access_token, email })
       navigate('/')
     } else {
-      setSnackbar({ open: true, text: data.errors[0].message, severity: 'error' })
+      console.log({ error })
+      setSnackbar({ open: true, text: error.message, severity: 'error' })
     }
   }
 
